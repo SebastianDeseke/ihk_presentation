@@ -9,10 +9,10 @@
 
 	<link rel="stylesheet" href="dist/reset.css">
 	<link rel="stylesheet" href="dist/reveal.css">
-	<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+	<link rel="stylesheet" href="dist/theme/league.css" id="theme">
 
 	<!-- Theme used for syntax highlighted code -->
-	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	<link rel="stylesheet" href="plugin/highlight/solarized-dark.css">
 </head>
 
 <body>
@@ -25,8 +25,11 @@
 			</section>
 
 			<section data-src="slides/1intro.html">
-				<h2>Debug Slide</h2>
-				<p>If you see this, it’s a color issue</p>
+				<h1>Einleitung</h1>
+				<p>Erstmal eine bisschen Geschichte</p>
+				<img src="/img/enterprise.jpeg.png" alt="enterprise logo" style="width:500px; height:125px; float: left; width: 40%; margin-right: 5%;">
+				<span style="font-size: 3em; display: inline-block; margin-top: 40px;">➡️</span>
+				<img src="/img/SteamConnect_logo_zondertagline_RGB.svg" alt="steam-connect logo" style="width:500px; height:200px; float: right; width: 30%; margin-left: 5%;">
 			</section>
 
 			<section data-src="slides/2projectdescription.html">
@@ -68,6 +71,7 @@
 			transition: 'fade',
 			// Learn about plugins: https://revealjs.com/plugins/
 			plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+			//presented by chatgpt
 			dependencies: [
 				{
 					src: 'plugin/external/external.js',
