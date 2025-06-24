@@ -1,40 +1,83 @@
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<html lang="de">
 
-		<title>reveal.js</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+	<title>Abschlusspräsentation</title>
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-src="slides/0title.html">
+				<h1>Migration Tool</h1>
+				<h2>Fachinformatiker Abschlusspräsentation</h2>
+				<p><strong>Sebastian Deseke</strong></p>
+			</section>
+
+			<section data-src="slides/1intro.html">
+				<h2>Debug Slide</h2>
+				<p>If you see this, it’s a color issue</p>
+			</section>
+
+			<section data-src="slides/2projectdescription.html">
+				<h2>Projektbeschreibung</h2>
+				<ul>
+					<li>Migration von TnT Dial zu Steam-connect</li>
+					<li>Entwicklung eines Tools zur Datenübertragung</li>
+					<li>Automatisierung manueller Prozesse</li>
+				</ul>
+			</section>
+
+			<section data-src="slides/3ausgangssituation.html"></section>
+
+			<section data-src="slides/4zielsetzung.html"></section>
+
+			<section data-src="slides/5planung.html"></section>
+
+			<section data-src="slides/6wirtschaftlichkeit.html"></section>
+
+			<section data-src="slides/7probleme_loesungen.html"></section>
+
+			<section data-src="slides/8fazit.html"></section>
+
+			<section data-src="slides/9end.html"></section>
+
 		</div>
+	</div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+			transition: 'fade',
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+			dependencies: [
+				{
+					src: 'plugin/external/external.js',
+					condition: function () {
+						return !!document.querySelector('[data-external],[data-external-replace]');
+					}
+				}
+			]
+		});
+	</script>
+</body>
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
 </html>
