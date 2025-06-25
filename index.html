@@ -18,15 +18,17 @@
 <body>
 	<div class="reveal">
 		<div class="slides">
+			<!--Title Slide-->
 			<section data-src="slides/0title.html">
 				<h1>Migration Tool</h1>
 				<h2>Fachinformatiker Abschlusspräsentation</h2>
 				<p><strong>Sebastian Deseke</strong></p>
 			</section>
 
+			<!--Intro-->
 			<section data-src="slides/1intro.html">
 				<h1>Einleitung</h1>
-				<p>Erstmal eine bisschen Geschichte</p>
+				<p>Erstmal ein bisschen Geschichte</p>
 				<img src="/img/enterprise.jpeg.png" alt="enterprise logo"
 					style="width:500px; height:125px; float: left; width: 40%; margin-right: 5%;">
 				<span style="font-size: 3em; display: inline-block; margin-top: 40px;">➡️</span>
@@ -39,6 +41,7 @@
 				</aside>
 			</section>
 
+			<!--Project Description-->
 			<section data-src="slides/2projectdescription.html">
 				<h2>Projektbeschreibung</h2>
 				<ul>
@@ -49,10 +52,14 @@
 				</ul>
 			</section>
 
+			<!--Ausgangssituation-->
 			<section data-src="slides/3ausgangssituation.html">
 				<h2>Ausgangssituation</h2>
 				<p>Alte System soll ausgeschaltet werden</p>
 				<p>Kunden ihre Lead Daten müssen migriert werden</p>
+				<h2>Anfangs herausforderungen</h2>
+				<p>Unterschiedliche Ablaufverfahren</p>
+				<p>Unteschiedliche Datenstruckturen</p>
 			</section>
 
 			<section data-src="slides/4zielsetzung.html">
@@ -61,20 +68,33 @@
 					<li>Mit beide API's erfolgreich kommunizieren</li>
 					<li>Daten format verwandeln (XML -> JSON)</li>
 					<li>Daten strucktur umwandeln (Lead -> Record)</li>
+					<li>Authorizierungsverfahren vereinfachen</li>
 				</ul>
 			</section>
 
+			<!--Planning-->
 			<section data-src="slides/5planung.html">
-				<h2>Planung und Umsetzung</h2>
-				<ul>
-					<li>Wöchenliche cath-ups</li>
-					<li>C# MVC Framework</li>
-					<li>Hilfsmittel</li>
-					<li>Resourcen verteilung</li>
-				</ul>
+				<section>
+					<h2>Planung</h2>
+					<ul>
+						<li>Welche Sprache (Framework)</li>
+						<li>Coding Design Pattern</li>
+						<li>Datenbank</li>
+						<li>Fortschritt Updates</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Umsetzung</h2>
+					<ul>
+						<li>C# MVC Framework</li>
+						<li>Daten zwischen Anfragen behalten</li>
+						<li>Wöchenliche cath-ups</li>
+					</ul>
+				</section>
 			</section>
 
-			<section data-src="slides/6wirtschaftlichkeit.html">
+			<!--Wirtschaftlichkeitsanalyse-->
+			<section data-src="slides/">
 
 				<h2>Wirtschaftlichkeitsanalyse</h2>
 
@@ -83,27 +103,27 @@
 					<ol>
 						<li>Ausgangslage (Ist-Zustand)</li>
 						<ul>
-							<li>Das alte System TnT-Dial ist veraltet und wird abgeschaltet</li>
-							<li>Ohne Migration verlieren Kunden ihre Daten</li>
+							<li>TnT Dial wird eingestellt</li>
+							<li>Datenverlust droht ohne Migration</li>
 						</ul>
 						<li>Problemstellung</li>
 						<ul>
-							<li>Migration manuell = hoher Aufwand, fehleranfällig teuer (Stundensätze)</li>
-							<li>Fehlende Automatisierung = mehr Personal = höhere Kosten</li>
+							<li>Manuelle Migration = teuer & fehleranfällig</li>
+							<li>Kein Prozess = mehr Personal nötig</li>
 						</ul>
 						<li>Ziel</li>
 						<ul>
-							<li>Automatisierte, sichere Migration → spart Zeit, Geld, Ressourcen.</li>
+							<li>Automatisierte, sichere Migration – spart Zeit, Geld und Nerven.</li>
 						</ul>
 					</ol>
 				</section>
 
 				<!--Teil 2-->
 				<section>
-					<h3>Kosten</h3>
+					<h3>Kostenvergleich</h3>
 
-						<div class="center" style="display: flex; justify-content: center;">
-							<table style="border-collapse: collapse; text-align: center;">
+					<div class="center" style="display: flex; justify-content: center;">
+						<table style="border-collapse: collapse; text-align: center;">
 							<tr>
 								<th>Posten</th>
 								<th>Aufwand/Stunden</th>
@@ -129,7 +149,7 @@
 								<td>400€ p.a.</td>
 							</tr>
 						</table>
-						</div>
+					</div>
 				</section>
 
 				<!--Teil 3-->
@@ -138,29 +158,75 @@
 						<li>
 							Nutzen
 							<ul>
-								<li>Zeitersparnis: 4h → 10 min.</li>
-								<li>Skalierbarkeit: Viele Kunden gleichzeitig.</li>
-								<li>Zuverlässigkeit: Logging, Wiederholbarkeit.</li>
-								<li>Kundenbindung: Reibungsloser Übergang.</li>
+								<li><strong>4h → 10 Min.</strong> pro Kunde</li>
+								<li><strong>Skalierbar</strong> für beliebig viele Kunden</li>
+								<li><strong>Verlässlich:</strong> Logging & Fehlerbehandlung</li>
+								<li><strong>Kundenbindung</strong> durch reibungslosen Wechsel</li>
 							</ul>
 						</li>
 						<li>
 							Fazit
-							<ul>
-								<li>Die Investition in das Migrationstool amortisiert sich nach wenigen Kunden.</li>
-								<li>Es reduziert Fehler, senkt den Personalaufwand und verbessert das Kundenerlebnis
-									nachhaltig.</li>
-							</ul>
+							<p>Die Investition zahlt sich schon nach wenigen Kunden aus.<br>Es ist ein nachhaltiger Gewinn – für Betrieb und Kunden.</p>
 						</li>
 					</ul>
 				</section>
 			</section>
 
-			<section data-src="slides/7probleme.html"></section>
+			<!--Challenges-->
+			<section data-src="slides/">
+				<h2>Herausforderungen</h2>
+				<section>
+					<h3>Ohne Datenbank, wie?</h3>
+					<ul>
+						<li>
+							TempData
+							<span class="fragment" style="color:red">X</span>
+						</li>
+						<li>
+							Session Middelware
+							<span class="fragment" style="color:red">X</span>
+						</li>
+						<li>
+							Cookies
+							<span class="fragment" style="color:red">X</span>
+						</li>
+						<li>
+							Hidden Fields / Query Strings
+							<span class="fragment" style="color:green">✅</span>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Daten verwandelung</h3>
+					<p>XML Antwort <span class="fragment">-> Model-Object</span> <span class="fragment">-> JSON
+							Anfrage</span></p>
+				</section>
+				<section>
+					<h3>Einzel oder Batch</h3>
+					<p>Steam ermöglicht es per Context ID</p>
+				</section>
+			</section>
 
-			<section data-src="slides/8loesungen"></section>
+			<!--Lösungen mit beispiel-->
+			<section data-src="slides/">
+				<h2>Lösungen</h2>
+				<!--Ohne Datenbank-->
+				<section>
+					<h3>Hidden Fields / Query Strings</h3>
+				</section>
+				<!--Daten umwandlung-->
+				<section>
+					<h3>Parser</h3>
+				</section>
+				<!--Einzel oder Batch-->
+				<section>
+					<h3>Context ID</h3>
+				</section>
+			</section>
 
-			<section data-src="slides/9fazit.html"></section>
+			<section data-src="slides/9fazit.html">
+				<h2>Fazit</h2>
+			</section>
 
 			<section data-src="slides/10end.html">
 				<h1>Danke fürs zuhören</h1>
