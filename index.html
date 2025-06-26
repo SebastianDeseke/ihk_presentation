@@ -18,6 +18,16 @@
 <body>
 	<div class="reveal">
 		<div class="slides">
+			<style>
+				/* Fix code block height and prevent scrollbars */
+				.reveal pre code {
+					max-height: none !important;
+					overflow: visible !important;
+					font-size: 1em;
+					white-space: pre-wrap;
+					word-break: break-word;
+				}
+			</style>
 			<!--Title Slide-->
 			<section data-src="slides/0title.html">
 				<h1>Migration Tool</h1>
@@ -94,7 +104,7 @@
 			</section>
 
 			<!--Wirtschaftlichkeitsanalyse-->
-			<section data-src="slides/">
+			<section data-src="slides/" data-auto-animate>
 
 				<h2>Wirtschaftlichkeitsanalyse</h2>
 
@@ -166,7 +176,8 @@
 						</li>
 						<li>
 							Fazit
-							<p>Die Investition zahlt sich schon nach wenigen Kunden aus.<br>Es ist ein nachhaltiger Gewinn – für Betrieb und Kunden.</p>
+							<p>Die Investition zahlt sich schon nach wenigen Kunden aus.<br>Es ist ein nachhaltiger
+								Gewinn – für Betrieb und Kunden.</p>
 						</li>
 					</ul>
 				</section>
@@ -198,12 +209,37 @@
 				</section>
 				<section>
 					<h3>Daten verwandelung</h3>
-					<p>XML Antwort <span class="fragment">-> Model-Object</span> <span class="fragment">-> JSON
-							Anfrage</span></p>
+
+					<div>XML Antwort <span class="fragment">-> Model-Object</span> <span class="fragment">-> JSON
+							Anfrage</span></div>
+
+					<svg class="fragment" width="1000" height="250" viewBox="0 0 1000 250"
+						xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M 980 50 L 980 80 Q 980 110, 900 110 L 520 110 Q 500 110, 500 140 Q 500 110, 480 110 L 100 110 Q 20 110, 20 80 L 20 50"
+							stroke="white" stroke-width="10" fill="none" />
+						<text x="500" y="200" text-anchor="middle" fill="white" font-size="54">Parser</text>
+					</svg>
 				</section>
 				<section>
 					<h3>Einzel oder Batch</h3>
-					<p>Steam ermöglicht es per Context ID</p>
+					<pre><code class="language-json">
+						{
+						"ImportSetupID": 0,
+						"CampaignRecords": [
+    						{
+      						"ID": 0,
+      						<span class="fragment grow">"ContextID": "string",</span>
+      						"AddressFileID": 0,
+      						"AgentID": 0,
+      						"CallbackDate": "2025-06-26T09:34:18.093Z",
+      						"Status": 0,
+      						"Data": {},
+      						"ByPassLock": 0
+    						}
+  							]
+						}
+					</code></pre>
 				</section>
 			</section>
 
