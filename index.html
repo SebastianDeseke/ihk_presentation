@@ -248,15 +248,72 @@
 				<h2>Lösungen</h2>
 				<!--Ohne Datenbank-->
 				<section>
-					<h3>Hidden Fields / Query Strings</h3>
+					<h4>Hidden Fields / Query Strings</h4>
+					<pre class="fragment fade-in"><code class="language-cs">
+private async Task&lt;Project[]&gt; GetProjects(int campaignId)
+{
+    JsonElement result = await _clientsc.GetJsonElement&lt;Project&gt;("Projects", $"?CampaignID={campaignId}");
+    if (result.TryGetProperty("Projects", out JsonElement data))
+    {
+        Project[] projects = Parser.ParseJson&lt;Project[]&gt;(data);
+        return projects;
+    }
+}
+</code></pre>
+
+					<pre class="fragment fade-in"><code class="language-cs">
+public async Task&lt;IActionResult&gt; Projects(int campaignId)
+{
+    var projects = await GetProjects(campaignId);
+    ViewData["SelectedCampaign"] = campaignId;
+    return View(projects);
+}
+</code></pre>
+
+					<pre class="fragment fade-in"><code class="language-cs">
+public async Task&lt;IActionResult&gt; SelectProject(int projectId, int campaignId)
+{
+    var projects = await GetProjects(campaignId);
+    var selectedProject = Array.Find(projects, p => p.ID == projectId);
+    return RedirectToAction("AddressFiles", new { campaignId, projectId = selectedProject.ID });
+}
+</code></pre>
 				</section>
 				<!--Daten umwandlung-->
 				<section>
 					<h3>Parser</h3>
+					<pre><code class="language-cs">
+public static T ParseJson&lt;T&gt;(JsonElement json)
+{
+    string jsonString = json.GetRawText();
+    return JsonSerializer.Deserialize&lt;T&gt;(jsonString);
+}
+public static T ParseXml&lt;T&gt;(XmlElement xml) where T : class
+{
+    XmlSerializer serializer = new XmlSerializer(typeof(T));
+    using StringReader reader = new StringReader(xml.OuterXml);
+    return serializer.Deserialize(reader) as T;
+}
+public static string SerializeJson&lt;T&gt;(T obj)
+{
+    return JsonSerializer.Serialize(obj);
+}
+public static string SerializeXml&lt;T&gt;(T obj)
+{
+    XmlSerializer serializer = new XmlSerializer(typeof(T));
+    using StringWriter writer = new StringWriter();
+    serializer.Serialize(writer, obj);
+    return writer.ToString();
+}
+</code></pre>
 				</section>
 				<!--Einzel oder Batch-->
 				<section>
 					<h3>Context ID</h3>
+					<pre><code class="language-cs">
+public Record ConvertLeadToRecord(Lead lead, string tntAgent, string tntList, Dictionary&lt;string, string&gt; MappedKeys) {}
+public Record ConvertLeadToRecordwithContextId(Lead lead, string tntAgent, string tntList, Dictionary&lt;string, string&gt; MappedKeys, string contextID) {}
+					</code></pre>
 				</section>
 			</section>
 
@@ -265,7 +322,8 @@
 			</section>
 
 			<section data-src="slides/10end.html">
-				<h1>Danke fürs zuhören</h1>
+				<h1>Vielen Dank!</h1>
+				<p>Ich bin bereit für Ihre Fragen.</p>
 			</section>
 
 		</div>
