@@ -10,24 +10,40 @@
 	<link rel="stylesheet" href="dist/reset.css">
 	<link rel="stylesheet" href="dist/reveal.css">
 	<link rel="stylesheet" href="dist/theme/league.css" id="theme">
-
 	<!-- Theme used for syntax highlighted code -->
 	<link rel="stylesheet" href="plugin/highlight/solarized-dark.css">
+
+	<style>
+		/* Fix code block height and prevent scrollbars */
+		.reveal pre code {
+			max-height: none !important;
+			max-width: 100% !important;
+			width: 100%;
+			display: block;
+			overflow: visible !important;
+			font-size: 0.7em;
+			white-space: pre-wrap;
+			word-break: break-word;
+		}
+
+		.reveal pre {
+			margin-left: auto;
+			margin-right: auto;
+			width: 90% !important;
+			box-sizing: border-box;
+		}
+
+		.reveal h1 {
+			text-shadow:
+				5px 5px 2px rgba(0, 0, 0, 0.3),
+				0 0 20px rgba(64, 224, 208, 0.5);
+		}
+	</style>
 </head>
 
 <body>
 	<div class="reveal">
 		<div class="slides">
-			<style>
-				/* Fix code block height and prevent scrollbars */
-				.reveal pre code {
-					max-height: none !important;
-					overflow: visible !important;
-					font-size: 1em;
-					white-space: pre-wrap;
-					word-break: break-word;
-				}
-			</style>
 			<!--Title Slide-->
 			<section data-src="slides/0title.html">
 				<h1>Migration Tool</h1>
@@ -39,11 +55,16 @@
 			<section data-src="slides/1intro.html">
 				<h1>Einleitung</h1>
 				<p>Erstmal ein bisschen Geschichte</p>
-				<img src="/img/enterprise.jpeg.png" alt="enterprise logo"
-					style="width:500px; height:125px; float: left; width: 40%; margin-right: 5%;">
-				<span style="font-size: 3em; display: inline-block; margin-top: 40px;">➡️</span>
+				<div class="container">
+					<img src="/img/enterprise.jpeg.png" alt="enterprise logo"
+					style="width:500px; height:125px; float: left; width: 45%;">
+					<!--<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+						<path d="m21.707 11.293-7-7A1 1 0 0 0 13 5v3H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h10v3a1 1 0 0 0 1.707.707l7-7a1 1 0 0 0 0-1.414zM15 16.586V15a1 1 0 0 0-1-1H4v-4h10a1 1 0 0 0 1-1V7.414L19.586 12z" style="fill:#1c1b1e" data-name="Right"/>
+					</svg>-->
+				<span style="font-size: 3.5em; display: inline-block; margin-top: 20px; justify-content: center;">➡️</span>
 				<img src="/img/SteamConnect_logo_zondertagline_RGB.svg" alt="steam-connect logo"
-					style="width:500px; height:200px; float: right; width: 30%; margin-left: 5%;">
+					style="width:500px; height:150px; float: right; width: 30%;">
+				</div>
 
 				<aside class="notes">
 					Explain to them that enterprise changed to Steam-connect. Also mention the difference (naked dialer
@@ -54,6 +75,7 @@
 			<!--Project Description-->
 			<section data-src="slides/2projectdescription.html">
 				<h2>Projektbeschreibung</h2>
+				<br>
 				<ul>
 					<li>Migration von TnT Dial zu Steam-connect</li>
 					<li>Entwicklung eines Tools zur Datenübertragung</li>
@@ -74,6 +96,7 @@
 
 			<section data-src="slides/4zielsetzung.html">
 				<h2>Ziele fürs Projekt</h2>
+				<br>
 				<ul>
 					<li>Mit beide API's erfolgreich kommunizieren</li>
 					<li>Daten format verwandeln (XML -> JSON)</li>
@@ -185,8 +208,9 @@
 
 			<!--Challenges-->
 			<section data-src="slides/">
-				<h2>Herausforderungen</h2>
 				<section>
+					<h2>Herausforderungen:</h2>
+					<br>
 					<h3>Ohne Datenbank, wie?</h3>
 					<ul>
 						<li>
@@ -208,6 +232,8 @@
 					</ul>
 				</section>
 				<section>
+					<h2>Herausforderungen:</h2>
+					<br>
 					<h3>Daten verwandelung</h3>
 
 					<div>XML Antwort <span class="fragment">-> Model-Object</span> <span class="fragment">-> JSON
@@ -222,33 +248,35 @@
 					</svg>
 				</section>
 				<section>
+					<h2>Herausforderungen:</h2>
 					<h3>Einzel oder Batch</h3>
 					<pre><code class="language-json">
-						{
-						"ImportSetupID": 0,
-						"CampaignRecords": [
-    						{
-      						"ID": 0,
-      						<span class="fragment grow">"ContextID": "string",</span>
-      						"AddressFileID": 0,
-      						"AgentID": 0,
-      						"CallbackDate": "2025-06-26T09:34:18.093Z",
-      						"Status": 0,
-      						"Data": {},
-      						"ByPassLock": 0
-    						}
-  							]
-						}
+					{
+					"ImportSetupID": 0,
+					"CampaignRecords": [
+    					{
+      					"ID": 0,
+      					"ContextID": "string",
+      					"AddressFileID": 0,
+      					"AgentID": 0,
+      					"CallbackDate": "2025-06-26T09:34:18.093Z",
+      					"Status": 0,
+      					"Data": {},
+      					"ByPassLock": 0
+    					}
+  						]
+					}
 					</code></pre>
 				</section>
 			</section>
 
 			<!--Lösungen mit beispiel-->
 			<section data-src="slides/">
-				<h2>Lösungen</h2>
+				
 				<!--Ohne Datenbank-->
 				<section>
-					<h4>Hidden Fields / Query Strings</h4>
+					<h3>Lösungen:</h3>
+					<h3>Hidden Fields / Query Strings</h3>
 					<pre class="fragment fade-in"><code class="language-cs">
 private async Task&lt;Project[]&gt; GetProjects(int campaignId)
 {
@@ -269,7 +297,11 @@ public async Task&lt;IActionResult&gt; Projects(int campaignId)
     return View(projects);
 }
 </code></pre>
-
+				</section>
+				<!--Seperate Slide for Select Method since it does not all fit on one slide-->
+				<section>
+					<h2>Select Methode</h2>
+					<br>
 					<pre class="fragment fade-in"><code class="language-cs">
 public async Task&lt;IActionResult&gt; SelectProject(int projectId, int campaignId)
 {
@@ -312,6 +344,8 @@ public static string SerializeXml&lt;T&gt;(T obj)
 					<h3>Context ID</h3>
 					<pre><code class="language-cs">
 public Record ConvertLeadToRecord(Lead lead, string tntAgent, string tntList, Dictionary&lt;string, string&gt; MappedKeys) {}
+
+
 public Record ConvertLeadToRecordwithContextId(Lead lead, string tntAgent, string tntList, Dictionary&lt;string, string&gt; MappedKeys, string contextID) {}
 					</code></pre>
 				</section>
@@ -319,6 +353,11 @@ public Record ConvertLeadToRecordwithContextId(Lead lead, string tntAgent, strin
 
 			<section data-src="slides/9fazit.html">
 				<h2>Fazit</h2>
+				<p><strong>✅ Ziel erreicht:</strong> Automatisierte Datenmigration läuft stabil</p>
+				<p><strong>📉 Aufwand gesenkt:</strong> ~4h auf 10min</p>
+				<p><strong>🗂 Betrieb profitiert:</strong> weniger Aufwand, bessere Support</p>
+				<p><strong>💡 Gelernt:</strong> Planung, API-Handling, Logging, Web-Protokolle (HTTPS/TCP),
+					Verantwortung</p>
 			</section>
 
 			<section data-src="slides/10end.html">
