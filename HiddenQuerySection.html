@@ -1,58 +1,30 @@
-<pre class="fragment fade-in"><code class="language-cs">
-private async Task&lt;Project[]&gt; GetProjects(int campaignId)
-{
-    JsonElement result = await _clientsc.GetJsonElement&lt;Project&gt;("Projects", $"?CampaignID={campaignId}");
-    if (result.TryGetProperty("Projects", out JsonElement data))
-    {
-        Project[] projects = Parser.ParseJson&lt;Project[]&gt;(data);
-        return projects;
-    }
-}
-</code></pre>
-
-<pre class="fragment fade-in"><code class="language-cs">
-public async Task&lt;IActionResult&gt; Projects(int campaignId)
-{
-    var projects = await GetProjects(campaignId);
-    ViewData["SelectedCampaign"] = campaignId;
-    return View(projects);
-}
-</code></pre>
-
-<pre class="fragment fade-in"><code class="language-cs">
-public async Task&lt;IActionResult&gt; SelectProject(int projectId, int campaignId)
-{
-    var projects = await GetProjects(campaignId);
-    var selectedProject = Array.Find(projects, p => p.ID == projectId);
-    return RedirectToAction("AddressFiles", new { campaignId, projectId = selectedProject.ID });
-}
-</code></pre>
-
-<textarea data-template>
-	```cs
-	private async Task<Project[]> GetProjects(int campaignId)
-	{
-	    JsonElement result = await _clientsc.GetJsonElement<Project>("Projects", $"?CampaignID={campaignId}");
-	    if (result.TryGetProperty("Projects", out JsonElement data))
-	    {
-	        Project[] projects = Parser.ParseJson<Project[]>(data);
-	        return projects;
-	    }
-
-	```cs
-	public async Task<IActionResult> Projects(int campaignId)
-	{
-	    var projects = await GetProjects(campaignId);
-	    ViewData["SelectedCampaign"] = campaignId;
-	    return View(projects);
-	}
-
-	```cs
-	public async Task<IActionResult> SelectProject(int projectId, int campaignId)
-	{
-	    var projects = await GetProjects(campaignId);
-	    var selectedProject = Array.Find(projects, p => p.ID == projectId);
-	    return RedirectToAction("AddressFiles", new { campaignId, projectId = selectedProject.ID });
-	}
-	```
-</textarea>
+<section data-auto-animate>
+  <h3>Kostenvergleich</h3>
+  <table style="font-size: 0.9em; border-collapse: collapse; text-align: center; margin: auto;">
+    <thead>
+      <tr>
+        <th>Variante</th>
+        <th>Aufwand</th>
+        <th>Kosten</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Manuelle Migration</td>
+        <td>4h / Kunde</td>
+        <td>288€</td>
+      </tr>
+      <tr>
+        <td>Migrationstool</td>
+        <td>80h (einmalig)</td>
+        <td>0€ (intern)</td>
+      </tr>
+      <tr>
+        <td>Wartung</td>
+        <td>10h / Jahr</td>
+        <td>400€</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="text-align: center; font-size: 0.8em; margin-top: 1em;">Schon ab dem zweiten Kunden amortisiert sich das Tool.</p>
+</section>

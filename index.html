@@ -57,13 +57,14 @@
 				<p>Erstmal ein bisschen Geschichte</p>
 				<div class="container">
 					<img src="/img/enterprise.jpeg.png" alt="enterprise logo"
-					style="width:500px; height:125px; float: left; width: 45%;">
+						style="width:500px; height:125px; float: left; width: 45%;">
 					<!--<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 						<path d="m21.707 11.293-7-7A1 1 0 0 0 13 5v3H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h10v3a1 1 0 0 0 1.707.707l7-7a1 1 0 0 0 0-1.414zM15 16.586V15a1 1 0 0 0-1-1H4v-4h10a1 1 0 0 0 1-1V7.414L19.586 12z" style="fill:#1c1b1e" data-name="Right"/>
 					</svg>-->
-				<span style="font-size: 3.5em; display: inline-block; margin-top: 20px; justify-content: center;">➡️</span>
-				<img src="/img/SteamConnect_logo_zondertagline_RGB.svg" alt="steam-connect logo"
-					style="width:500px; height:150px; float: right; width: 30%;">
+					<span
+						style="font-size: 3.5em; display: inline-block; margin-top: 20px; justify-content: center;">➡️</span>
+					<img src="/img/SteamConnect_logo_zondertagline_RGB.svg" alt="steam-connect logo"
+						style="width:500px; height:150px; float: right; width: 30%;">
 				</div>
 
 				<aside class="notes">
@@ -87,11 +88,17 @@
 			<!--Ausgangssituation-->
 			<section data-src="slides/3ausgangssituation.html">
 				<h2>Ausgangssituation</h2>
-				<p>Alte System soll ausgeschaltet werden</p>
-				<p>Kunden ihre Lead Daten müssen migriert werden</p>
-				<h2>Anfangs herausforderungen</h2>
-				<p>Unterschiedliche Ablaufverfahren</p>
-				<p>Unteschiedliche Datenstruckturen</p>
+				<div style="display: flex; gap: 2em;">
+					<div style="flex: 1;">
+						<ul style="font-size: 1.2em;">
+							<li><strong>Altsystem:</strong> TnT Dial</li>
+							<li><span style="color: yellow;">Status:</span> wird abgeschaltet</li>
+							<li><span style="color: red;">Problem:</span> Kundendaten drohen zu verschwinden</li>
+							<li><span style="color: black;">Chaos</span> keine einheitliche Struktur, keine
+								Automatisierung</li>
+						</ul>
+					</div>
+				</div>
 			</section>
 
 			<section data-src="slides/4zielsetzung.html">
@@ -107,102 +114,142 @@
 
 			<!--Planning-->
 			<section data-src="slides/5planung.html">
-				<section>
+				<section data-auto-animate>
 					<h2>Planung</h2>
 					<ul>
-						<li>Welche Sprache (Framework)</li>
-						<li>Coding Design Pattern</li>
-						<li>Datenbank</li>
-						<li>Fortschritt Updates</li>
+						<li>Welche Programmiersprache?</li>
+						<li>Welche Architektur / Design Pattern?</li>
+						<li>Wie sollen APIs angebunden werden?</li>
+						<li>Wie bleiben Daten während des Prozesses erhalten?</li>
+						<li>Wie bleiben wir in die geplannte Zeitplan?</li>
 					</ul>
+					<aside class="notes">
+						Ich habe früh festgelegt, dass ich mit .NET 8 arbeite. Die Herausforderung war, die Sessions
+						ohne Datenbank zu lösen.
+					</aside>
 				</section>
-				<section>
+				<section data-auto-animate>
+					<h2>Technische Entscheidungen</h2>
+					<br>
+					<table style="font-size: 0.8em; border-collapse: collapse;">
+						<tr>
+							<th>Frage</th>
+							<th>Entscheidung</th>
+						</tr>
+						<tr>
+							<td>Sprache/Framework</td>
+							<td>C# mit .NET 8, MVC + Razor Pages</td>
+						</tr>
+						<tr>
+							<td>Zwischenspeicherung</td>
+							<td>Hidden Fields + Query Strings</td>
+						</tr>
+						<tr>
+							<td>API-Integration</td>
+							<td>Custom HTTP-Client + JSON/XML Parser</td>
+						</tr>
+					</table>
+					<aside class="notes">
+						Entscheidungen wurden bewusst getroffen, um Flexibilität und Stabilität zu sichern
+					</aside>
+				</section>
+				<section data-auto-animate>
 					<h2>Umsetzung</h2>
-					<ul>
-						<li>C# MVC Framework</li>
-						<li>Daten zwischen Anfragen behalten</li>
-						<li>Wöchenliche cath-ups</li>
-					</ul>
+					<ol>
+						<li>Analyse der beiden APIs</li>
+						<li>Wöchentliche Fortschritt Updates</li>
+						<li>Mapping der Datenstruktur</li>
+						<li>Entwicklung der Parser</li>
+						<li>Fehlerhandling & Logging via Serilog</li>
+						<li>Test mit Mock-Daten</li>
+						<li>Optional: Minimal UI mit Razor Pages</li>
+					</ol>
 				</section>
 			</section>
 
 			<!--Wirtschaftlichkeitsanalyse-->
-			<section data-src="slides/" data-auto-animate>
+			<section data-src="slides/">
 
 				<h2>Wirtschaftlichkeitsanalyse</h2>
 
 				<!--Teil 1-->
-				<section>
-					<ol>
-						<li>Ausgangslage (Ist-Zustand)</li>
-						<ul>
-							<li>TnT Dial wird eingestellt</li>
-							<li>Datenverlust droht ohne Migration</li>
-						</ul>
-						<li>Problemstellung</li>
-						<ul>
-							<li>Manuelle Migration = teuer & fehleranfällig</li>
-							<li>Kein Prozess = mehr Personal nötig</li>
-						</ul>
-						<li>Ziel</li>
-						<ul>
-							<li>Automatisierte, sichere Migration – spart Zeit, Geld und Nerven.</li>
-						</ul>
-					</ol>
+				<section data-auto-animate>
+					<h3>Ausgangslage (Ist-Zustand)</h3>
+					<ul>
+						<li>TnT Dial wird eingestellt</li>
+						<li>Datenverlust ohne Migration</li>
+						<li>Manuelle Prozesse sind teuer & fehleranfällig</li>
+					</ul>
+					<h3>Ziel</h3>
+					<ul>
+						<li>Automatisierung der Migration</li>
+						<li>Minimierung von Zeit & Kosten</li>
+						<li>Skalierbare Lösung für viele Kunden</li>
+					</ul>
 				</section>
 
 				<!--Teil 2-->
-				<section>
+				<section data-auto-animate>
 					<h3>Kostenvergleich</h3>
 
 					<div class="center" style="display: flex; justify-content: center;">
 						<table style="border-collapse: collapse; text-align: center;">
 							<tr>
 								<th>Posten</th>
-								<th>Aufwand/Stunden</th>
+								<th>Aufwand</th>
 								<th>Kosten/h</th>
 								<th>Gesamtkosten</th>
 							</tr>
 							<tr>
-								<td>Manuelle Migration (alt)</td>
+								<td>Manuelle Migration</td>
 								<td>4h pro Kunde</td>
 								<td>72€</td>
 								<td>288€ pro Kunde</td>
 							</tr>
 							<tr>
-								<td>Automatisiertes Tool </td>
+								<td>Migration Tool </td>
 								<td>Einmalig ~80h</td>
 								<td>0€ (intern)</td>
 								<td>0€ (intern)</td>
 							</tr>
 							<tr>
-								<td>Wartung/Anpassung</td>
+								<td>Wartung</td>
 								<td>10h pro Jahr</td>
 								<td>40€</td>
 								<td>400€ p.a.</td>
 							</tr>
 						</table>
 					</div>
+					<aside class="notes">
+						Anpassungen werden hier unter Wartung kalkuliert. Anpassung sind damit alles was ich nicht
+						selber geschaft habe und wo unsere IT Abteilung geholfen haaben.
+
+						72€ pro Stunde ist der Stundensatz für Unsere .
+					</aside>
 				</section>
 
 				<!--Teil 3-->
-				<section>
+				<section data-auto-animate>
 					<ul>
 						<li>
-							Nutzen
+							<h3>Nutzen</h3>
 							<ul>
-								<li><strong>4h → 10 Min.</strong> pro Kunde</li>
-								<li><strong>Skalierbar</strong> für beliebig viele Kunden</li>
-								<li><strong>Verlässlich:</strong> Logging & Fehlerbehandlung</li>
-								<li><strong>Kundenbindung</strong> durch reibungslosen Wechsel</li>
+								<li><strong>⏱ Zeitersparnis:</strong> 4h → 10 Minuten</li>
+								<li><strong>📈 Skalierbarkeit:</strong> beliebig viele Kunden</li>
+								<li><strong>🧩 Verlässlichkeit:</strong> Logging & Wiederholbarkeit</li>
+								<li><strong>🤝 Kundenbindung:</strong> reibungsloser Übergang</li>
 							</ul>
 						</li>
 						<li>
-							Fazit
-							<p>Die Investition zahlt sich schon nach wenigen Kunden aus.<br>Es ist ein nachhaltiger
-								Gewinn – für Betrieb und Kunden.</p>
+							<h3>Fazit:</h3>
+							<p>Die Investition zahlt sich schon nach wenigen Kunden aus.</p>
 						</li>
 					</ul>
+					<aside class="notes">
+						Die Investition zahlt sich schon nach wenigen Kunden aus. Es ist ein nachhaltiger Gewinn – für
+						Betrieb und Kunden.
+						Das Tool spart Kosten, verhindert überflüssiges arbeit und stärkt das Vertrauen der Kunden.
+					</aside>
 				</section>
 			</section>
 
@@ -272,7 +319,7 @@
 
 			<!--Lösungen mit beispiel-->
 			<section data-src="slides/">
-				
+
 				<!--Ohne Datenbank-->
 				<section>
 					<h3>Lösungen:</h3>
@@ -343,10 +390,12 @@ public static string SerializeXml&lt;T&gt;(T obj)
 				<section>
 					<h3>Context ID</h3>
 					<pre><code class="language-cs">
-public Record ConvertLeadToRecord(Lead lead, string tntAgent, string tntList, Dictionary&lt;string, string&gt; MappedKeys) {}
+public Record ConvertLeadToRecord
+(Lead lead, string tntAgent, string tntList, Dictionary&lt;string, string&gt; MappedKeys) {}
 
 
-public Record ConvertLeadToRecordwithContextId(Lead lead, string tntAgent, string tntList, Dictionary&lt;string, string&gt; MappedKeys, string contextID) {}
+public Record ConvertLeadToRecordwithContextId
+(Lead lead, string tntAgent, string tntList, Dictionary&lt;string, string&gt; MappedKeys, string contextID) {}
 					</code></pre>
 				</section>
 			</section>
