@@ -63,6 +63,7 @@
 					</svg>-->
 					<span
 						style="font-size: 3.5em; display: inline-block; margin-top: 20px; justify-content: center;">➡️</span>
+						<!-- <div style="font-size: 3.5em; color: #0ff; display: inline-block; margin-top: 20px; justify-content: center;">⟶</div> -->
 					<img src="/img/SteamConnect_logo_zondertagline_RGB.svg" alt="steam-connect logo"
 						style="width:500px; height:150px; float: right; width: 30%;">
 				</div>
@@ -174,18 +175,30 @@
 
 				<!--Teil 1-->
 				<section data-auto-animate>
-					<h3>Ausgangslage (Ist-Zustand)</h3>
-					<ul>
-						<li>TnT Dial wird eingestellt</li>
-						<li>Datenverlust ohne Migration</li>
-						<li>Manuelle Prozesse sind teuer & fehleranfällig</li>
-					</ul>
-					<h3>Ziel</h3>
-					<ul>
-						<li>Automatisierung der Migration</li>
-						<li>Minimierung von Zeit & Kosten</li>
-						<li>Skalierbare Lösung für viele Kunden</li>
-					</ul>
+					<div style="display: flex; justify-content: space-around; align-items: center;">
+						<!-- Ausgangslage -->
+						<div style="flex: 1; padding-right: 2em;">
+							<h3 style="text-align: center; color: #f88;">Ausgangslage</h3>
+							<ul style="font-size: 0.8em;">
+								<li>TnT Dial wird eingestellt</li>
+								<li>Datenverlust ohne Migration</li>
+								<li>Manuelle Prozesse = teuer & fehleranfällig</li>
+							</ul>
+						</div>
+
+						<!-- Arrow -->
+						<div style="font-size: 3em; color: #0ff;">⟶</div>
+
+						<!-- Ziel -->
+						<div class="fragment" style="flex: 1; padding-left: 2em;">
+							<h3 style="text-align: center; color: #8f8;">Ziel</h3>
+							<ul style="font-size: 0.8em;">
+								<li>Automatisierung der Migration</li>
+								<li>Minimierung von Zeit & Kosten</li>
+								<li>Skalierbare Lösung für viele Kunden</li>
+							</ul>
+						</div>
+					</div>
 				</section>
 
 				<!--Teil 2-->
@@ -312,7 +325,13 @@ public async Task&lt;IActionResult&gt; SelectProject(int projectId, int campaign
 {
     var projects = await GetProjects(campaignId);
     var selectedProject = Array.Find(projects, p => p.ID == projectId);
-    return RedirectToAction("AddressFiles", new { campaignId, projectId = selectedProject.ID });
+		if (selectedProject == null)
+        {
+            // Handle the case where the project ID is invalid
+            TempData["Error"] = "The selected project does not exist.";
+            return View("Projects");
+        }
+    return RedirectToAction("AddressFiles", new {campaignId, projectId = selectedProject.ID});
 }
 </code></pre>
 				</section>
