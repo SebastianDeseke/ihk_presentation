@@ -254,9 +254,9 @@
 			</section>
 
 			<!--Challenges-->
-			<section data-src="slides/">
+			<section data-src="slides/ohne_datenbank">
 				<section>
-					<h2>Herausforderungen:</h2>
+					<h2>Herausforderung:</h2>
 					<br>
 					<h3>Ohne Datenbank, wie?</h3>
 					<ul>
@@ -278,52 +278,10 @@
 						</li>
 					</ul>
 				</section>
-				<section>
-					<h2>Herausforderungen:</h2>
-					<br>
-					<h3>Daten verwandelung</h3>
-
-					<div>XML Antwort <span class="fragment">-> Model-Object</span> <span class="fragment">-> JSON
-							Anfrage</span></div>
-
-					<svg class="fragment" width="1000" height="250" viewBox="0 0 1000 250"
-						xmlns="http://www.w3.org/2000/svg">
-						<path
-							d="M 980 50 L 980 80 Q 980 110, 900 110 L 520 110 Q 500 110, 500 140 Q 500 110, 480 110 L 100 110 Q 20 110, 20 80 L 20 50"
-							stroke="white" stroke-width="10" fill="none" />
-						<text x="500" y="200" text-anchor="middle" fill="white" font-size="54">Parser</text>
-					</svg>
-				</section>
-				<section>
-					<h2>Herausforderungen:</h2>
-					<h3>Einzel oder Batch</h3>
-					<pre><code class="language-json">
-					{
-					"ImportSetupID": 0,
-					"CampaignRecords": [
-    					{
-      					"ID": 0,
-      					"ContextID": "string",
-      					"AddressFileID": 0,
-      					"AgentID": 0,
-      					"CallbackDate": "2025-06-26T09:34:18.093Z",
-      					"Status": 0,
-      					"Data": {},
-      					"ByPassLock": 0
-    					}
-  						]
-					}
-					</code></pre>
-				</section>
-			</section>
-
-			<!--Lösungen mit beispiel-->
-			<section data-src="slides/">
 
 				<!--Ohne Datenbank-->
 				<section>
-					<h3>Lösungen:</h3>
-					<h3>Hidden Fields / Query Strings</h3>
+					<h3>Lösung: Hidden Fields / Query Strings</h3>
 					<pre class="fragment fade-in"><code class="language-cs">
 private async Task&lt;Project[]&gt; GetProjects(int campaignId)
 {
@@ -358,9 +316,29 @@ public async Task&lt;IActionResult&gt; SelectProject(int projectId, int campaign
 }
 </code></pre>
 				</section>
+			</section>
+
+			<section data-src="slides/dataparser">
+				<section>
+					<h2>Herausforderung:</h2>
+					<br>
+					<h3>Daten verwandelung</h3>
+
+					<div>XML Antwort <span class="fragment">-> Model-Object</span> <span class="fragment">-> JSON
+							Anfrage</span></div>
+
+					<svg class="fragment" width="1000" height="250" viewBox="0 0 1000 250"
+						xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M 980 50 L 980 80 Q 980 110, 900 110 L 520 110 Q 500 110, 500 140 Q 500 110, 480 110 L 100 110 Q 20 110, 20 80 L 20 50"
+							stroke="white" stroke-width="10" fill="none" />
+						<text x="500" y="200" text-anchor="middle" fill="white" font-size="54">Parser</text>
+					</svg>
+				</section>
+
 				<!--Daten umwandlung-->
 				<section>
-					<h3>Parser</h3>
+					<h3>Lösung: Parser</h3>
 					<pre><code class="language-cs">
 public static T ParseJson&lt;T&gt;(JsonElement json)
 {
@@ -385,6 +363,30 @@ public static string SerializeXml&lt;T&gt;(T obj)
     return writer.ToString();
 }
 </code></pre>
+				</section>
+			</section>
+
+			<section data-src="slides/batch">
+				<section>
+					<h2>Herausforderungen:</h2>
+					<h3>Einzel oder Batch</h3>
+					<pre><code class="language-json">
+					{
+					"ImportSetupID": 0,
+					"CampaignRecords": [
+    					{
+      					"ID": 0,
+      					"ContextID": "string",
+      					"AddressFileID": 0,
+      					"AgentID": 0,
+      					"CallbackDate": "2025-06-26T09:34:18.093Z",
+      					"Status": 0,
+      					"Data": {},
+      					"ByPassLock": 0
+    					}
+  						]
+					}
+					</code></pre>
 				</section>
 				<!--Einzel oder Batch-->
 				<section>
