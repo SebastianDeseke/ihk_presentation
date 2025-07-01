@@ -134,24 +134,24 @@
 					<br>
 					<table style="font-size: 0.8em; border-collapse: collapse;">
 						<tr>
-							<th>Frage</th>
 							<th>Entscheidung</th>
 						</tr>
 						<tr>
-							<td>Sprache/Framework</td>
 							<td>C# mit .NET 8, MVC + Razor Pages</td>
 						</tr>
 						<tr>
-							<td>Zwischenspeicherung</td>
 							<td>Hidden Fields + Query Strings</td>
 						</tr>
 						<tr>
-							<td>API-Integration</td>
-							<td>Custom HTTP-Client + JSON/XML Parser</td>
+							<td>Custom HTTP-Client per System</td>
+						</tr>
+						<tr>
+							<td>Helfer Klassen</td>
 						</tr>
 					</table>
 					<aside class="notes">
-						Entscheidungen wurden bewusst getroffen, um Flexibilität und Stabilität zu sichern
+						Entscheidungen wurden bewusst getroffen, um Flexibilität und Stabilität bei integration zu
+						sichern.
 					</aside>
 				</section>
 				<section data-auto-animate>
@@ -162,10 +162,14 @@
 						<li>Mapping der Datenstruktur</li>
 						<li>Entwicklung der Parser</li>
 						<li>Fehlerhandling & Logging via Serilog</li>
+						<li>Minimal UI mit Razor Pages</li>
 						<li>Test mit Mock-Daten</li>
-						<li>Optional: Minimal UI mit Razor Pages</li>
 					</ol>
 				</section>
+				<aside class="notes">
+					Es war optional den UI zu verschönern, das Zeitintensiv ist und nicht die parameter de Projeckts
+					entsprechen.
+				</aside>
 			</section>
 
 			<!--Wirtschaftlichkeitsanalyse-->
