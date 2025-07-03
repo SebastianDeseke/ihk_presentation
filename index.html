@@ -137,16 +137,19 @@
 							<th>Entscheidung</th>
 						</tr>
 						<tr>
-							<td>C# mit .NET 8, MVC + Razor Pages</td>
+							<td>C# mit .NET 8 + Razor Pages</td>
 						</tr>
 						<tr>
-							<td>Hidden Fields + Query Strings</td>
+							<td>Model View Controller</td>
 						</tr>
 						<tr>
 							<td>Custom HTTP-Client per System</td>
 						</tr>
 						<tr>
 							<td>Helfer Klassen</td>
+						</tr>
+						<tr>
+							<td>Hidden Fields + Query Strings</td>
 						</tr>
 					</table>
 					<aside class="notes">
@@ -158,12 +161,12 @@
 					<h2>Umsetzung</h2>
 					<ol>
 						<li>Analyse der beiden APIs</li>
-						<li>Wöchentliche Fortschritt Updates</li>
 						<li>Mapping der Datenstruktur</li>
 						<li>Entwicklung der Parser</li>
 						<li>Fehlerhandling & Logging via Serilog</li>
-						<li>Minimal UI mit Razor Pages</li>
+						<li>Wöchentliche Fortschritt Updates</li>
 						<li>Test mit Mock-Daten</li>
+						<li>Minimal UI mit Razor Pages</li>
 					</ol>
 				</section>
 				<aside class="notes">
@@ -233,7 +236,7 @@
 								<td>Wartung</td>
 								<td>10h pro Jahr</td>
 								<td>40€</td>
-								<td>400€ p.a.</td>
+								<td>400€ pro Jahr</td>
 							</tr>
 						</table>
 					</div>
@@ -241,7 +244,7 @@
 						Anpassungen werden hier unter Wartung kalkuliert. Anpassung sind damit alles was ich nicht
 						selber geschaft habe und wo unsere IT Abteilung geholfen haaben.
 
-						72€ pro Stunde ist der Stundensatz für Unsere .
+						72€ pro Stunde ist der Stundensatz für Unsere. 
 					</aside>
 				</section>
 
@@ -270,8 +273,9 @@
 				</section>
 			</section>
 
-			<!--Challenges-->
+			<!--Challenges and Solutions-->
 			<section data-src="slides/ohne_datenbank">
+				<!--Ohne Datenbank-->
 				<section>
 					<h2>Herausforderung:</h2>
 					<br>
@@ -296,7 +300,6 @@
 					</ul>
 				</section>
 
-				<!--Ohne Datenbank-->
 				<section>
 					<h3>Lösung: Hidden Fields / Query Strings</h3>
 					<pre class="fragment fade-in"><code class="language-cs">
@@ -342,6 +345,7 @@ public async Task&lt;IActionResult&gt; SelectProject(int projectId, int campaign
 			</section>
 
 			<section data-src="slides/dataparser">
+				<!--Daten umwandlung-->
 				<section>
 					<h2>Herausforderung:</h2>
 					<br>
@@ -359,7 +363,6 @@ public async Task&lt;IActionResult&gt; SelectProject(int projectId, int campaign
 					</svg>
 				</section>
 
-				<!--Daten umwandlung-->
 				<section>
 					<h3>Lösung: Parser</h3>
 					<pre><code class="language-cs">
@@ -390,6 +393,7 @@ public static string SerializeXml&lt;T&gt;(T obj)
 			</section>
 
 			<section data-src="slides/batch">
+				<!--Einzel oder Batch-->
 				<section>
 					<h2>Herausforderungen:</h2>
 					<h3>Einzel oder Batch</h3>
@@ -411,7 +415,6 @@ public static string SerializeXml&lt;T&gt;(T obj)
 					}
 					</code></pre>
 				</section>
-				<!--Einzel oder Batch-->
 				<section>
 					<h3>Context ID</h3>
 					<pre><code class="language-cs">
@@ -430,8 +433,7 @@ public Record ConvertLeadToRecordwithContextId
 				<p><strong>✅ Ziel erreicht:</strong> Automatisierte Datenmigration läuft stabil</p>
 				<p><strong>📉 Aufwand gesenkt:</strong> ~4h auf 10min</p>
 				<p><strong>🗂 Betrieb profitiert:</strong> weniger Aufwand, bessere Support</p>
-				<p><strong>💡 Gelernt:</strong> Planung, API-Handling, Logging, Web-Protokolle (HTTPS/TCP),
-					Verantwortung</p>
+				<p><strong>💡 Gelernt:</strong> Planung, API-Handling, Logging, Web-Protokolle (HTTPS/TCP), Verantwortung</p>
 			</section>
 
 			<section data-src="slides/10end.html">
