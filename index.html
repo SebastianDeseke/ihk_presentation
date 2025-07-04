@@ -29,8 +29,26 @@
 		.reveal pre {
 			margin-left: auto;
 			margin-right: auto;
-			width: 90% !important;
+			width: 105% !important;
+			max-width: 125% !important;
 			box-sizing: border-box;
+		}
+
+		/* Custom class for one specific code block */
+		.parsercode {
+			width: 80% !important;
+			max-width: 90% !important;
+			margin-left: auto;
+			margin-right: auto;
+			box-sizing: border-box;
+		}
+
+		.parsercode code {
+			display: block;
+			font-size: 0.8em;
+			white-space: pre;
+			overflow: auto;
+			max-width: 80%;
 		}
 
 		.reveal h1 {
@@ -63,7 +81,7 @@
 					</svg>-->
 					<span
 						style="font-size: 3.5em; display: inline-block; margin-top: 20px; justify-content: center;">➡️</span>
-						<!-- <div style="font-size: 3.5em; color: #0ff; display: inline-block; margin-top: 20px; justify-content: center;">⟶</div> -->
+					<!-- <div style="font-size: 3.5em; color: #0ff; display: inline-block; margin-top: 20px; justify-content: center;">⟶</div> -->
 					<img src="/img/SteamConnect_logo_zondertagline_RGB.svg" alt="steam-connect logo"
 						style="width:500px; height:150px; float: right; width: 30%;">
 				</div>
@@ -244,7 +262,7 @@
 						Anpassungen werden hier unter Wartung kalkuliert. Anpassung sind damit alles was ich nicht
 						selber geschaft habe und wo unsere IT Abteilung geholfen haaben.
 
-						72€ pro Stunde ist der Stundensatz für Unsere. 
+						72€ pro Stunde ist der Stundensatz für Unsere.
 					</aside>
 				</section>
 
@@ -365,7 +383,7 @@ public async Task&lt;IActionResult&gt; SelectProject(int projectId, int campaign
 
 				<section>
 					<h3>Lösung: Parser</h3>
-					<pre><code class="language-cs">
+					<pre class="parsercode"><code class="language-cs">
 public static T ParseJson&lt;T&gt;(JsonElement json)
 {
     string jsonString = json.GetRawText();
@@ -433,7 +451,8 @@ public Record ConvertLeadToRecordwithContextId
 				<p><strong>✅ Ziel erreicht:</strong> Automatisierte Datenmigration läuft stabil</p>
 				<p><strong>📉 Aufwand gesenkt:</strong> ~4h auf 10min</p>
 				<p><strong>🗂 Betrieb profitiert:</strong> weniger Aufwand, bessere Support</p>
-				<p><strong>💡 Gelernt:</strong> Planung, API-Handling, Logging, Web-Protokolle (HTTPS/TCP), Verantwortung</p>
+				<p><strong>💡 Gelernt:</strong> Planung, API-Handling, Logging, Web-Protokolle (HTTPS/TCP),
+					Verantwortung</p>
 			</section>
 
 			<section data-src="slides/10end.html">
