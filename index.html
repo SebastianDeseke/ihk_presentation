@@ -395,28 +395,28 @@ public async Task&lt;IActionResult&gt; SelectProject(int projectId, int campaign
 				<section>
 					<h3>Lösung: Parser</h3>
 					<pre class="parsercode"><code class="language-cs">
-public static T ParseJson&lt;T&gt;(JsonElement json)
-{
-    string jsonString = json.GetRawText();
-    return JsonSerializer.Deserialize&lt;T&gt;(jsonString);
-}
-public static T ParseXml&lt;T&gt;(XmlElement xml) where T : class
-{
-    XmlSerializer serializer = new XmlSerializer(typeof(T));
-    using StringReader reader = new StringReader(xml.OuterXml);
-    return serializer.Deserialize(reader) as T;
-}
-public static string SerializeJson&lt;T&gt;(T obj)
-{
-    return JsonSerializer.Serialize(obj);
-}
-public static string SerializeXml&lt;T&gt;(T obj)
-{
-    XmlSerializer serializer = new XmlSerializer(typeof(T));
-    using StringWriter writer = new StringWriter();
-    serializer.Serialize(writer, obj);
-    return writer.ToString();
-}
+			public static T ParseJson&lt;T&gt;(JsonElement json)
+			{
+			    string jsonString = json.GetRawText();
+			    return JsonSerializer.Deserialize&lt;T&gt;(jsonString);
+			}
+			public static T ParseXml&lt;T&gt;(XmlElement xml) where T : class
+			{
+			    XmlSerializer serializer = new XmlSerializer(typeof(T));
+			    using StringReader reader = new StringReader(xml.OuterXml);
+			    return serializer.Deserialize(reader) as T;
+			}
+			public static string SerializeJson&lt;T&gt;(T obj)
+			{
+			    return JsonSerializer.Serialize(obj);
+			}
+			public static string SerializeXml&lt;T&gt;(T obj)
+			{
+			    XmlSerializer serializer = new XmlSerializer(typeof(T));
+			    using StringWriter writer = new StringWriter();
+			    serializer.Serialize(writer, obj);
+			    return writer.ToString();
+			}
 </code></pre>
 				</section>
 			</section>
@@ -445,7 +445,8 @@ public static string SerializeXml&lt;T&gt;(T obj)
 					</code></pre>
 				</section>
 				<section>
-					<h3>Context ID</h3>
+					<h2>Lösung: </h2>
+					<h3>Mit oder ohne Context ID bauen</h3>
 					<pre><code class="language-cs">
 public Record ConvertLeadToRecord
 (Lead lead, string tntAgent, string tntList, Dictionary&lt;string, string&gt; MappedKeys) {}
