@@ -1,0 +1,33 @@
+<!--Einzel oder Batch-->
+<section>
+    <h2>Herausforderungen:</h2>
+    <h3>Einzel oder Batch</h3>
+    <pre><code class="language-json">
+					{
+					"ImportSetupID": 0,
+					"CampaignRecords": [
+    					{
+      					"ID": 0,
+      					"ContextID": "string",
+      					"AddressFileID": 0,
+      					"AgentID": 0,
+      					"CallbackDate": "2025-06-26T09:34:18.093Z",
+      					"Status": 0,
+      					"Data": {},
+      					"ByPassLock": 0
+    					}
+  						]
+					}
+					</code></pre>
+</section>
+<section>
+    <h3>Context ID</h3>
+    <pre><code class="language-cs">
+public Record ConvertLeadToRecord
+(Lead lead, string tntAgent, string tntList, Dictionary&lt;string, string&gt; MappedKeys) {}
+
+
+public Record ConvertLeadToRecordwithContextId
+(Lead lead, string tntAgent, string tntList, Dictionary&lt;string, string&gt; MappedKeys, string contextID) {}
+					</code></pre>
+</section>

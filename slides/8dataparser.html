@@ -1,0 +1,44 @@
+<!--Daten umwandlung-->
+<section>
+    <h2>Herausforderung:</h2>
+    <br>
+    <h3>Daten verwandelung</h3>
+
+    <div>XML Antwort <span class="fragment">-> Model-Object</span> <span class="fragment">-> JSON
+            Anfrage</span></div>
+
+    <svg class="fragment" width="1000" height="250" viewBox="0 0 1000 250" xmlns="http://www.w3.org/2000/svg">
+        <path
+            d="M 980 50 L 980 80 Q 980 110, 900 110 L 520 110 Q 500 110, 500 140 Q 500 110, 480 110 L 100 110 Q 20 110, 20 80 L 20 50"
+            stroke="white" stroke-width="10" fill="none" />
+        <text x="500" y="200" text-anchor="middle" fill="white" font-size="54">Parser</text>
+    </svg>
+</section>
+
+<section>
+    <h3>Lösung: Parser</h3>
+    <pre class="parsercode"><code class="language-cs">
+public static T ParseJson&lt;T&gt;(JsonElement json)
+{
+    string jsonString = json.GetRawText();
+    return JsonSerializer.Deserialize&lt;T&gt;(jsonString);
+}
+public static T ParseXml&lt;T&gt;(XmlElement xml) where T : class
+{
+    XmlSerializer serializer = new XmlSerializer(typeof(T));
+    using StringReader reader = new StringReader(xml.OuterXml);
+    return serializer.Deserialize(reader) as T;
+}
+public static string SerializeJson&lt;T&gt;(T obj)
+{
+    return JsonSerializer.Serialize(obj);
+}
+public static string SerializeXml&lt;T&gt;(T obj)
+{
+    XmlSerializer serializer = new XmlSerializer(typeof(T));
+    using StringWriter writer = new StringWriter();
+    serializer.Serialize(writer, obj);
+    return writer.ToString();
+}
+</code></pre>
+</section>

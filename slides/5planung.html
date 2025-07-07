@@ -1,0 +1,58 @@
+<section data-auto-animate>
+    <h2>Planung</h2>
+    <ul>
+        <li>Welche Programmiersprache?</li>
+        <li>Welche Architektur / Design Pattern?</li>
+        <li>Wie sollen APIs angebunden werden?</li>
+        <li>Wie bleiben Daten während des Prozesses erhalten?</li>
+        <li>Wie bleiben wir in die geplannte Zeitplan?</li>
+    </ul>
+    <aside class="notes">
+        Ich habe früh festgelegt, dass ich mit .NET 8 arbeite. Die Herausforderung war, die Sessions
+        ohne Datenbank zu lösen.
+    </aside>
+</section>
+<section data-auto-animate>
+    <h2>Technische Entscheidungen</h2>
+    <br>
+    <table style="font-size: 0.8em; border-collapse: collapse;">
+        <tr>
+            <th>Entscheidung</th>
+        </tr>
+        <tr>
+            <td>C# mit .NET 8 + Razor Pages</td>
+        </tr>
+        <tr>
+            <td>Model View Controller</td>
+        </tr>
+        <tr>
+            <td>Custom HTTP-Client per System</td>
+        </tr>
+        <tr>
+            <td>Helfer Klassen</td>
+        </tr>
+        <tr>
+            <td>Hidden Fields + Query Strings</td>
+        </tr>
+    </table>
+    <aside class="notes">
+        Entscheidungen wurden bewusst getroffen, um Flexibilität und Stabilität bei integration zu
+        sichern.
+    </aside>
+</section>
+<section data-auto-animate>
+    <h2>Umsetzung</h2>
+    <ol>
+        <li>Analyse der beiden APIs</li>
+        <li>Mapping der Datenstruktur</li>
+        <li>Entwicklung der Parser</li>
+        <li>Fehlerhandling & Logging via Serilog</li>
+        <li>Wöchentliche Fortschritt Updates</li>
+        <li>Test mit Mock-Daten</li>
+        <li>Minimal UI mit Razor Pages</li>
+    </ol>
+</section>
+<aside class="notes">
+    Es war optional den UI zu verschönern, das Zeitintensiv ist und nicht die parameter de Projeckts
+    entsprechen.
+</aside>
